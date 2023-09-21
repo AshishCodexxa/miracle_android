@@ -1,0 +1,48 @@
+{
+  "identifier" : "DA5EF31B",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "269.00",
+      "familyShareable" : false,
+      "internalID" : "CB44B4BD",
+      "localizations" : [
+        {
+          "description" : "Enjoy With Plan",
+          "displayName" : "Monthly Plan",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "123",
+      "referenceName" : "Month",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "2999.00",
+      "familyShareable" : false,
+      "internalID" : "5D65E5B7",
+      "localizations" : [
+        {
+          "description" : "Enjoy with plan.",
+          "displayName" : "Yearly Plan",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "1_year",
+      "referenceName" : "Year",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
