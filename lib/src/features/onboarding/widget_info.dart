@@ -32,7 +32,7 @@ class WidgetInfo extends StatelessWidget {
               ),
               Text(
                 'Step 1:',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -41,7 +41,7 @@ class WidgetInfo extends StatelessWidget {
               Expanded(
                 child: Text(
                   'On your phone\'s Home screen, touch and hold an empty space.',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -50,7 +50,7 @@ class WidgetInfo extends StatelessWidget {
               ),
               Text(
                 'Step 2:',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -59,7 +59,7 @@ class WidgetInfo extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Tap Widgets.',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -68,7 +68,7 @@ class WidgetInfo extends StatelessWidget {
               ),
               Text(
                 'Step 3:',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -77,7 +77,7 @@ class WidgetInfo extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Slide the widget to where you want it.Lift your finger.',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
               ),

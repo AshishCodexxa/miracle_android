@@ -87,7 +87,7 @@ void showCollections(BuildContext context, {required int quoteId}) {
               ),
               child: Text(
                 'Add to Collection',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             Expanded(child: CollectionDialog(quoteId)),

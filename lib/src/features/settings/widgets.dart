@@ -44,7 +44,7 @@ class Widgets extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Text(
               'Select the text size of the widget',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),
             ),
@@ -58,7 +58,7 @@ class Widgets extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Text(
               'Set how often the widget will update',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),
             ),

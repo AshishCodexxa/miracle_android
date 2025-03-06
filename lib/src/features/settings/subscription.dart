@@ -261,7 +261,7 @@
 //                                       index==0?'365 Day(s)':'30 Day(s)',
 //                                       style: Theme.of(context)
 //                                           .textTheme
-//                                           .bodyText2
+//                                           .bodySmall
 //                                           ?.copyWith(
 //                                           color: Theme.of(context)
 //                                               .colorScheme
@@ -742,22 +742,25 @@ class SubscriptionScreen extends HookConsumerWidget {
                               crossAxisAlignment:
                               CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  plans.value[index].name,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge
-                                      ?.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer,
+                                Container(
+                                  width: 230,
+                                  child: Text(
+                                    plans.value[index].name,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge
+                                        ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSecondaryContainer,
+                                    ),
                                   ),
                                 ),
                                 Text(
                                   '${plans.value[index].duration} Day(s)',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyText2
+                                      .bodySmall
                                       ?.copyWith(
                                       color: Theme.of(context)
                                           .colorScheme

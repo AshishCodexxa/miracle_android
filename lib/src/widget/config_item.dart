@@ -26,7 +26,7 @@ class ConfigItem extends StatelessWidget {
             label,
             style: Theme.of(context)
                 .textTheme
-                .caption
+                .titleSmall
                 ?.copyWith(color: Colors.white),
             textAlign: TextAlign.center,
           )

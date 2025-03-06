@@ -17,7 +17,7 @@ class Subscription {
     return Subscription(
       id: json['id'],
       name: json['name'],
-      duration: json['duration'],
+      duration: json['duration'] ?? 0,
       price: json['price'],
       discount: json['discount'],
     );

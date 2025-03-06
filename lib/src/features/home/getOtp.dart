@@ -122,7 +122,7 @@ class GetOtpScreen extends HookWidget {
                           'Enter OTP',
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .titleMedium
                               ?.copyWith(
                                   color: Theme.of(context).colorScheme.primary,
                                   fontWeight: FontWeight.w500,
@@ -132,7 +132,7 @@ class GetOtpScreen extends HookWidget {
                       //const Spacer(),
                       /*        Text(
                         'Sent To +91',
-                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 20

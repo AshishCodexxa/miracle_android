@@ -208,7 +208,7 @@ class AccountInfo extends HookWidget {
                     height: 8,
                   ),
                   Text(profile.value['name'],
-                      style: Theme.of(context).textTheme.bodyText2),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const Divider(),
                   Text(
                     'Email',
@@ -220,7 +220,7 @@ class AccountInfo extends HookWidget {
                     height: 8,
                   ),
                   Text(profile.value['email'],
-                      style: Theme.of(context).textTheme.bodyText2),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const Divider(),
                   Text(
                     'Renewal Date',
@@ -234,7 +234,7 @@ class AccountInfo extends HookWidget {
                   Text(
                       profile.value['subscription_end'] ??
                           'No Active Subscription',
-                      style: Theme.of(context).textTheme.bodyText2),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const Divider(),
                   Text(
                     'Remaining Days',
@@ -249,7 +249,7 @@ class AccountInfo extends HookWidget {
                       profile.value['day_remains'] != null
                           ? '${profile.value['day_remains']}'
                           : 'No Active Subscription',
-                      style: Theme.of(context).textTheme.bodyText2),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const Divider(),
                   Text(
                     'Current Plan',
@@ -261,7 +261,7 @@ class AccountInfo extends HookWidget {
                     height: 8,
                   ),
                   Text(profile.value['plan'] ?? 'No Active Subscription',
-                      style: Theme.of(context).textTheme.bodyText2),
+                      style: Theme.of(context).textTheme.bodySmall),
                   const Divider(),
                   const Spacer(),
 
@@ -329,7 +329,7 @@ class AccountInfo extends HookWidget {
                             ),),
                           content:  Text(
                               "You Have Already Subsribed the Plan.",
-                              style: Theme.of(context).textTheme.bodyText2),
+                              style: Theme.of(context).textTheme.bodySmall),
                           actions: <Widget>[
                             // TextButton(
                             //   onPressed: () => Navigator.pop(context, 'Cancel'),

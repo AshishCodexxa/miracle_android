@@ -166,11 +166,11 @@ class ReminderCard extends StatelessWidget {
                   children: [
                     Text(
                       time,
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     Text(
                       'Every Weekday',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 ),
@@ -184,7 +184,7 @@ class ReminderCard extends StatelessWidget {
                   child: Center(
                     child: Text(
                       '$howMany X',
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                 )

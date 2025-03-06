@@ -71,7 +71,7 @@ class Subscription extends StatelessWidget {
               Text(
                 '3 days free, then just Rs1,500/year',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

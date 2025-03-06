@@ -126,7 +126,7 @@ class ConfrimPassword extends HookWidget {
                           'Reset Password',
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .titleMedium
                               ?.copyWith(
                                   color: Theme.of(context).colorScheme.primary,
                                   fontWeight: FontWeight.w500,

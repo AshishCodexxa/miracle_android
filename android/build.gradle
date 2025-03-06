@@ -16,6 +16,12 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force 'com.google.android.exoplayer:exoplayer:2.18.2'
+        }
+    }
 }
 
 rootProject.buildDir = '../build'

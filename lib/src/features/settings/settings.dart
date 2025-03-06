@@ -94,7 +94,7 @@ class Settings extends HookWidget {
                 padding: const EdgeInsets.all(16),
                 child: Text(
                   'Your Quotes',
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
@@ -113,7 +113,7 @@ class Settings extends HookWidget {
                 trailing: const Icon(Icons.chevron_right_outlined),
                 title: Text(
                   'Collections',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
               Padding(
@@ -137,7 +137,7 @@ class Settings extends HookWidget {
                 trailing: const Icon(Icons.chevron_right_outlined),
                 title: Text(
                   'Add Your Own',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
               Padding(
@@ -161,7 +161,7 @@ class Settings extends HookWidget {
             trailing: const Icon(Icons.chevron_right_outlined),
             title: Text(
               'Past Quotes',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ), */
               ListTile(
@@ -178,7 +178,7 @@ class Settings extends HookWidget {
                 trailing: const Icon(Icons.chevron_right_outlined),
                 title: Text(
                   'Favorites',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
               Padding(
@@ -195,7 +195,7 @@ class Settings extends HookWidget {
             padding: const EdgeInsets.all(16),
             child: Text(
               'Settings',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),
             ),
@@ -214,7 +214,7 @@ class Settings extends HookWidget {
             trailing: const Icon(Icons.chevron_right_outlined),
             title: Text(
               isLogin.value?'Account Info':'Login',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -238,7 +238,7 @@ class Settings extends HookWidget {
             trailing: const Icon(Icons.chevron_right_outlined),
             title: Text(
               'Reminder',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -262,7 +262,7 @@ class Settings extends HookWidget {
             trailing: const Icon(Icons.chevron_right_outlined),
             title: Text(
               'Dark Mode',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -283,7 +283,7 @@ class Settings extends HookWidget {
             ),
             title: Text(
               'Share Manifest Miracle',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -305,7 +305,7 @@ class Settings extends HookWidget {
               color: Colors.transparent,
               child: Text(
                 'Leave us Feedback',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
           ),
@@ -328,7 +328,7 @@ class Settings extends HookWidget {
               color: Colors.transparent,
               child: Text(
                 'Contact Us',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
           ),
@@ -354,7 +354,7 @@ class Settings extends HookWidget {
             trailing: const Icon(Icons.chevron_right_outlined),
             title: Text(
               'Widget',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ), */
 
@@ -365,7 +365,7 @@ class Settings extends HookWidget {
             leading: const Icon(Icons.privacy_tip),
             title: Text(
               'Privacy Policy',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -383,7 +383,7 @@ class Settings extends HookWidget {
             leading: const Icon(Icons.file_copy_outlined),
             title: Text(
               'Terms and Conditions',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(
@@ -400,7 +400,7 @@ class Settings extends HookWidget {
             leading: const FaIcon(FontAwesomeIcons.handHoldingDollar),
             title: Text(
               'Refund Policy',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           Padding(

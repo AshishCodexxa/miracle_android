@@ -98,7 +98,7 @@ class SignUp extends HookWidget {
                   padding: const EdgeInsets.only(top: 100),
                   child: Text(
                     'Miracle Manifest',
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.w500,
                         ),

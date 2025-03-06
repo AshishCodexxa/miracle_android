@@ -82,7 +82,7 @@ class ThumbnailCard extends StatelessWidget {
                       subtitle ?? '',
                       style: Theme.of(context)
                           .textTheme
-                          .caption
+                          .titleSmall
                           ?.copyWith(color: Colors.white,
                         fontSize: 11,
                           letterSpacing: 0.5),

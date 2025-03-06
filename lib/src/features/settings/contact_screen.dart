@@ -45,7 +45,7 @@ class _ContactUsState extends State<ContactUs> {
                     //     Padding(
                     //       padding: EdgeInsets.only(top: 10, left: 20),
                     //       child: Text("9437440284",
-                    //         style: Theme.of(context).textTheme.subtitle1,),
+                    //         style: Theme.of(context).textTheme.titleSmall,),
                     //     ),
                     //   ],
                     // ),
@@ -82,7 +82,7 @@ class _ContactUsState extends State<ContactUs> {
                           padding: const EdgeInsets.only(top: 10, left: 20),
                           child: Text(
                             "support@heeradhar.com",
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
                       ],

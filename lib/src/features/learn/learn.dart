@@ -269,7 +269,7 @@ class Learn extends HookWidget {
                   children: [
                     Text(
                       label,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Spacer(),
                     TextButton(

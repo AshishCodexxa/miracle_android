@@ -153,7 +153,7 @@ class ReminderDay extends StatelessWidget {
           day,
           style: Theme.of(context)
               .textTheme
-              .bodyText1
+              .bodySmall
               ?.copyWith(color: isSelected ? selectedTextColor : null),
         ),
       ),
