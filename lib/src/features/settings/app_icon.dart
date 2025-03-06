@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 
 class AppIcon extends StatelessWidget {
   const AppIcon({Key? key}) : super(key: key);
@@ -7,8 +8,11 @@ class AppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('App Icon'),
+      appBar: AppBar(backgroundColor: primaryColor,
+        title: const Text('App Icon',
+        style: TextStyle(
+          color: Colors.white
+        ),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(4),

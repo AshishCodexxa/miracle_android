@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/collection.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/data/network/responses/collection_response.dart';
@@ -54,8 +55,13 @@ class CollectionSetting extends HookWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Collections'),
+      appBar: AppBar(backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        title: const Text('Collections',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         actions: [
           IconButton(

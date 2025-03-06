@@ -53,7 +53,7 @@ class SelectCategory extends HookWidget {
         height: SizeConfig.screenHeight,
         child: ListView(
           shrinkWrap: true,
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 15),
           children: [
             const AspectRatio(
               aspectRatio: 3 / 2,

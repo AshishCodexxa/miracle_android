@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/quote.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/data/network/responses/quote_response.dart';
@@ -73,7 +74,13 @@ class OwnQuotes extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Own Quotes'),
+        backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        title: const Text('Own Quotes',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         actions: [
           IconButton(

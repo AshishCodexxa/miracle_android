@@ -182,8 +182,13 @@ class AccountInfo extends HookWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Account Info'),
+      appBar: AppBar(backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        title: const Text('Account Info',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: isLoading.value

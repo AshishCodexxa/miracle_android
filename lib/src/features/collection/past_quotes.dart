@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 
 class PastQuotes extends StatelessWidget {
   const PastQuotes({Key? key}) : super(key: key);
@@ -8,7 +9,11 @@ class PastQuotes extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Past Quotes'),
+        backgroundColor: primaryColor,
+        title: const Text('Past Quotes',
+        style: TextStyle(
+          color: Colors.white
+        ),),
       ),
       body: Center(
         child: Column(

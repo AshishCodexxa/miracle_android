@@ -341,7 +341,11 @@ class Learn extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Learn'),
+        backgroundColor: primaryColor,
+        title: const Text('Learn',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: profile!=null?ListView(

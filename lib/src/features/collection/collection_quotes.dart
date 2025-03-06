@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/collection.dart';
 import 'package:miracle/src/data/model/quote.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
@@ -136,7 +137,13 @@ class CollectionQuotes extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(collectionName.value),
+        backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+        color: Colors.white,),
+        title: Text(collectionName.value,
+        style: const TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         actions: [
           IconButton(

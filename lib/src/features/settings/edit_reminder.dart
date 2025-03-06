@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/reminder.dart';
 import 'package:miracle/src/utils/common.dart';
 import 'package:miracle/src/widget/input_card.dart';
@@ -28,7 +29,15 @@ class _EditReminderState extends ConsumerState<EditReminder> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text('Reminders'), actions: [
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+          leading: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+          title: const Text('Reminders',
+        style: TextStyle(
+          color: Colors.white
+        ),),
+          actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();

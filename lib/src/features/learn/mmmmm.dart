@@ -3,6 +3,7 @@ import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:miracle/color.dart';
 
 import 'package:miracle/src/data/model/audio.dart';
 import 'package:miracle/src/features/learn/just.dart';
@@ -202,8 +203,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.audio.title),
+      appBar: AppBar(backgroundColor: primaryColor,
+        title: Text(widget.audio.title,
+        style: const TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Center(
@@ -237,9 +241,9 @@ class _MyAppState extends State<MyApp> {
                             padding: const EdgeInsets.only(top: 5),
                             child: Text(list[index]["desc"].toString()),
                           ),
-                          Row(
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.only(top: 20),
                                 child: SizedBox(

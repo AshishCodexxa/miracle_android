@@ -163,7 +163,11 @@ class CategoryQuotes extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(category.name),
+        backgroundColor: primaryColor,
+        title: Text(category.name,
+        style: const TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Padding(

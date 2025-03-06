@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/category.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/utils/constant.dart';
@@ -53,7 +54,11 @@ class Mine extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Mine'),
+        backgroundColor: primaryColor,
+        title: const Text('Mine',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body:selectedCategory!=null?

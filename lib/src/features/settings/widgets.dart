@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/features/onboarding/widget_info.dart';
 import 'package:miracle/src/widget/radio_button.dart';
 
@@ -24,7 +25,11 @@ class Widgets extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Widgets'),
+        backgroundColor: primaryColor,
+        title: const Text('Widgets',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         actions: [
           IconButton(
               onPressed: () {

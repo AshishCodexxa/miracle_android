@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 
 class WidgetInfo extends StatelessWidget {
   const WidgetInfo({Key? key}) : super(key: key);
@@ -7,8 +8,11 @@ class WidgetInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Add Widget'),
+      appBar: AppBar(backgroundColor: primaryColor,
+        title: const Text('Add Widget',
+        style: TextStyle(
+          color: Colors.white
+        ),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(4),

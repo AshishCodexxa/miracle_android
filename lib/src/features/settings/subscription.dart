@@ -628,6 +628,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/subscription.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/data/network/responses/subscription_response.dart';
@@ -699,7 +700,13 @@ class SubscriptionScreen extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Subscription'),
+        backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        title: const Text('Subscription',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Column(

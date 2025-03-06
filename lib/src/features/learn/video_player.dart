@@ -1,5 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/video.dart';
 import 'package:miracle/src/utils/constant.dart';
 import 'package:video_player/video_player.dart';
@@ -39,8 +40,11 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.video.title),
+      appBar: AppBar(backgroundColor: primaryColor,
+        title: Text(widget.video.title,
+        style: const TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Container(

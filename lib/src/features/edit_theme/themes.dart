@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/quote_theme.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/di/app_module.dart';
@@ -81,7 +82,11 @@ class Themes extends HookConsumerWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Themes'),
+        backgroundColor: primaryColor,
+        title: const Text('Themes',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Padding(

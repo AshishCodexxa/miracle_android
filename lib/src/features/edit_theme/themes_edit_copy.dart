@@ -306,7 +306,11 @@ class _ThemesEditState extends ConsumerState<ThemesEdit> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('$title Editing'),
+        backgroundColor: primaryColor,
+        title: Text('$title Editing',
+        style: TextStyle(
+          color: Colors.white
+        ),),
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,

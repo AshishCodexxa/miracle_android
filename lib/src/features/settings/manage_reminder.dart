@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/model/reminder.dart';
 import 'package:miracle/src/features/settings/edit_reminder.dart';
 import 'package:miracle/src/service/notification_service.dart';
@@ -22,8 +23,14 @@ class ManageReminder extends ConsumerWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Reminders'),
-        centerTitle: true,
+        backgroundColor: primaryColor,
+          leading: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        title: const Text('Reminders',
+          style: TextStyle(
+            color: Colors.white
+          ),
+        )
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

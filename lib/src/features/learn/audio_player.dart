@@ -1,6 +1,7 @@
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:miracle/color.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'package:miracle/src/data/model/audio.dart';
@@ -69,7 +70,11 @@ class AudioPlayerScreenState extends State<AudioPlayerScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.audio.title),
+        backgroundColor: primaryColor,
+        title: Text(widget.audio.title,
+        style: const TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Column(

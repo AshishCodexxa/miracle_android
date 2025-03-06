@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({Key? key}) : super(key: key);
@@ -11,8 +12,13 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact Us'),
+      appBar: AppBar(backgroundColor: primaryColor,
+        leading: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        title: const Text('Contact Us',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
       ),
       body: Column(

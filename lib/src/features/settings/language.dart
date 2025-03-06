@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/widget/radio_button.dart';
 
 class Language extends StatelessWidget {
@@ -25,7 +26,11 @@ class Language extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Language'),
+        backgroundColor: primaryColor,
+        title: const Text('Language',
+        style: TextStyle(
+          color: Colors.white
+        ),),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),

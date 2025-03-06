@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:miracle/color.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/features/auth/login.dart';
 import 'package:miracle/src/features/collection/favorite_quotes.dart';
@@ -51,7 +52,11 @@ class Settings extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Settings'),
+        backgroundColor: primaryColor,
+        title: const Text('Settings',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         actions: [
           isLogin.value?
@@ -67,8 +72,8 @@ class Settings extends HookWidget {
                 );
               });
             },
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 Icon(Icons.exit_to_app, color: Colors.white),
                 Text(
                   'Logout',
@@ -204,7 +209,7 @@ class Settings extends HookWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => isLogin.value?AccountInfo():Login(),
+                  builder: (context) => isLogin.value?const AccountInfo():const Login(),
                 ),
               );
             },
@@ -417,12 +422,12 @@ class Settings extends HookWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text("Delete Account"),
-                    content: Text("Are you sure to delete your account permanently?"),
+                    title: const Text("Delete Account"),
+                    content: const Text("Are you sure to delete your account permanently?"),
                     actions:<Widget> [
 
                          Padding(
-                           padding: EdgeInsets.only(right: 10, bottom: 10),
+                           padding: const EdgeInsets.only(right: 10, bottom: 10),
                            child: Container(
                              color: Colors.transparent,
                              width: 100,
@@ -434,7 +439,7 @@ class Settings extends HookWidget {
                                      onTap: (){
                                       Navigator.pop(context);
                                      },
-                                     child: Text('No',
+                                     child: const Text('No',
                                      style: TextStyle(
                                        color: Colors.black,
                                        fontSize: 20,
@@ -463,7 +468,7 @@ class Settings extends HookWidget {
                                          );
                                        });
                                      },
-                                     child: Text('Yes',
+                                     child: const Text('Yes',
                                        style: TextStyle(
                                            color: Colors.black,
                                            fontSize: 20,
@@ -482,7 +487,7 @@ class Settings extends HookWidget {
               );
             },
             leading: const FaIcon(FontAwesomeIcons.userSlash, color: Colors.red,size: 20,),
-            title: Text(
+            title: const Text(
               'Delete Account',
               style: TextStyle(color: Colors.red),
             ),
