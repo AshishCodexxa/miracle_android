@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,6 +29,17 @@ final userId = GetStorage().read(kUserId);
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+  await Firebase.initializeApp(options: const FirebaseOptions(
+    apiKey: 'AIzaSyA3U4XyyqB7vmRJFKVSsT1MGK81Izj7bpE',
+    appId: '1:894057546171:web:74510e35f0f956ab7f049e',
+    messagingSenderId: '894057546171',
+    projectId: 'manifest-miracle',
+  ),);
+  await FirebaseAppCheck.instance.activate(
+    webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+    androidProvider: AndroidProvider.debug,
+    // appleProvider: AppleProvider.appAttest,
+  );
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: primaryColor,
   ));

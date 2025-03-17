@@ -41,6 +41,13 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: primaryColor,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         title: Text(widget.video.title,
         style: const TextStyle(
           color: Colors.white

@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:gallery_saver/gallery_saver.dart';
+// import 'package:gallery_saver/gallery_saver.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:miracle/src/data/model/quote.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
+import 'package:miracle/src/data/network/responses/quote_response.dart';
 import 'package:miracle/src/di/app_module.dart';
 import 'package:miracle/src/utils/common.dart';
 import 'package:miracle/src/utils/constant.dart';
@@ -26,6 +27,38 @@ class QuoteWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isFavorite = useState<bool>(quote.favorite == 1);
     final theme = ref.watch(quoteThemeProvider);
+
+    print("quotequotequote $quote");
+
+    final favorite = useState<List<Quote>>([]);
+
+    List<dynamic> favData = [];
+    bool isQuotePresent = false;
+
+    refresh() async {
+      final data = await DioClient().getFavorite();
+      final response = QuoteResponse.fromJson(data!);
+      favData = response.data;
+      isQuotePresent = favData.any((item) {
+        print("itemssssss ${item.id} ${quote.id}");
+        return item.id == quote.id;
+      });
+      print("isQuotePresent $isQuotePresent");
+      if (isQuotePresent) {
+        print("Yes, the quote is present in the favorites.");
+        isFavorite.value = true;
+      } else {
+        print("No, the quote is not present in the favorites.");
+        isFavorite.value = false;
+      }
+    }
+
+    refresh();
+
+    useEffect(() {
+      refresh();
+      return;
+    }, []);
 
     Future<File> saveScreenshot() async {
       final activatedTheme = GetStorage().read<String>(kActiveTheme) ?? '';
@@ -87,7 +120,8 @@ class QuoteWidget extends HookConsumerWidget {
         isFavorite.value = !isFavorite.value;
       });
     }
-    toggleFavorite() {
+
+/*    toggleFavorite() {
       try{
         test();
       }
@@ -101,7 +135,7 @@ class QuoteWidget extends HookConsumerWidget {
           isFavorite.value = !isFavorite.value;
         });
       }
-    }
+    }*/
 
     return Stack(
       children: [
@@ -113,9 +147,34 @@ class QuoteWidget extends HookConsumerWidget {
                 isFavorite.value
                     ? Icons.favorite_rounded
                     : Icons.favorite_border_outlined,
-                color: isFavorite.value ? Colors.red:Color(0xff800020),
+                color: isFavorite.value ? Colors.red:const Color(0xff800020),
               ),
-              onPressed: toggleFavorite,
+              onPressed: /*toggleFavorite*/(){
+                if(isQuotePresent == false){
+                  DioClient().addFavorite(quote.id).then((value) {
+                    final response = QuoteResponse.fromJson(value!);
+                    favData = response.data;
+                    isQuotePresent = favData.any((item) {
+                      print("itemssssss ${item.id} ${quote.id}");
+                      return item.id == quote.id;
+                    });
+                    print("isQuotePresent $isQuotePresent");
+                    if (isQuotePresent) {
+                      print("Yes, the quote is present in the favorites.");
+                      isFavorite.value = true;
+                    } else {
+                      print("No, the quote is not present in the favorites.");
+                      isFavorite.value = false;
+                    }
+                  });
+                }else if(isQuotePresent == true){
+                  DioClient().deleteFavorite(quote.id).then((value) {
+                    print('value is= $value');
+                    isFavorite.value = false;
+                  });
+                }
+
+              },
             ),
             IconButton(
               icon: const Icon(
@@ -134,7 +193,7 @@ class QuoteWidget extends HookConsumerWidget {
                 onPressed: () {
                   saveScreenshot().then(
                     (imagePath) {
-                      GallerySaver.saveImage(imagePath.path, albumName: kTitle)
+                     /* GallerySaver.saveImage(imagePath.path, albumName: kTitle)
                           .then((value) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -143,7 +202,7 @@ class QuoteWidget extends HookConsumerWidget {
                           ),
                         );
                         imagePath.delete();
-                      });
+                      });*/
                     },
                   );
                 }),

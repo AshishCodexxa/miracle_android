@@ -89,6 +89,12 @@ class DioClient {
     return result.data;
   }
 
+  Future<Map<String, dynamic>?> verifyCoupon(Map<String, dynamic> data) async {
+    final result = await _authClient.post<Map<String, dynamic>>('verify_coupon',
+        data: data);
+    return result.data;
+  }
+
   Future<Map<String, dynamic>?> getVideos() async {
     final result = await _authClient.get<Map<String, dynamic>>('videos');
     return result.data;

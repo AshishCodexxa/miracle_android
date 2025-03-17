@@ -15,8 +15,13 @@ class ThemeSetting extends ConsumerWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back,
-          color: Colors.white,),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         backgroundColor: primaryColor,
         title: const Text('Dark Mode',
         style: TextStyle(

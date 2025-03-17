@@ -164,6 +164,13 @@ class CategoryQuotes extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         title: Text(category.name,
         style: const TextStyle(
           color: Colors.white

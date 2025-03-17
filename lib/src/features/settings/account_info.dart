@@ -183,8 +183,13 @@ class AccountInfo extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(backgroundColor: primaryColor,
-        leading: const Icon(Icons.arrow_back,
-          color: Colors.white,),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         title: const Text('Account Info',
         style: TextStyle(
           color: Colors.white
@@ -352,37 +357,37 @@ class AccountInfo extends HookWidget {
                   :Container(),
 
 
-                  if (profile.value['subscription_end'] != null) ...[
-                    const SizedBox(height: 10),
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          showConfirmationDialog(
-                            context,
-                            heading: 'Are you sure!',
-                            message: 'Do you want to cancel your subscription?',
-                            isConfirmationDialog: true,
-                          ).then((confirmation) {
-                            if (confirmation) {
-                              DioClient().refundRequest().then((value) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Refund request submitted successfully',
-                                    ),
-                                  ),
-                                );
-                              });
-                            }
-                          });
-                        },
-                        child: const Text(
-                          'If you are not happy ask for refund',
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
-                  ]
+                  // if (profile.value['subscription_end'] != null) ...[
+                  //   const SizedBox(height: 10),
+                  //   Center(
+                  //     child: GestureDetector(
+                  //       onTap: () {
+                  //         showConfirmationDialog(
+                  //           context,
+                  //           heading: 'Are you sure!',
+                  //           message: 'Do you want to cancel your subscription?',
+                  //           isConfirmationDialog: true,
+                  //         ).then((confirmation) {
+                  //           if (confirmation) {
+                  //             DioClient().refundRequest().then((value) {
+                  //               ScaffoldMessenger.of(context).showSnackBar(
+                  //                 const SnackBar(
+                  //                   content: Text(
+                  //                     'Refund request submitted successfully',
+                  //                   ),
+                  //                 ),
+                  //               );
+                  //             });
+                  //           }
+                  //         });
+                  //       },
+                  //       child: const Text(
+                  //         'If you are not happy ask for refund',
+                  //         style: TextStyle(fontWeight: FontWeight.w500),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ]
                 ],
               ),
             ),

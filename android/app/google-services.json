@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "894057546171",
+    "project_id": "manifest-miracle",
+    "storage_bucket": "manifest-miracle.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894057546171:android:8ce96f59c6b9df067f049e",
+        "android_client_info": {
+          "package_name": "com.miraclemanifest.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894057546171-unssbmiogo5k9kehge43tg149dv256ks.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miraclemanifest.app",
+            "certificate_hash": "48dafac6eac489d129a281525814faf1e861ceb0"
+          }
+        },
+        {
+          "client_id": "894057546171-7cq3o6867urkoli08rhdd218g3baasfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3U4XyyqB7vmRJFKVSsT1MGK81Izj7bpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894057546171-7cq3o6867urkoli08rhdd218g3baasfh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

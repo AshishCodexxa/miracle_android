@@ -646,6 +646,7 @@ class SubscriptionScreen extends HookConsumerWidget {
     final couponPrice = useState<int>(0);
     final isApplyCouponExpanded = useState<bool>(false);
     final couponCodeTextController = useTextEditingController();
+    final couponUsed = useState<int>(0);
 
     refresh() async {
       isLoading.value = true;
@@ -916,7 +917,7 @@ class SubscriptionScreen extends HookConsumerWidget {
                     const SizedBox(
                       width: 16,
                     ),
-                    Expanded(
+                    /*Expanded(
                       flex: 2,
                       child: OutlinedButton(
                         onPressed: () {
@@ -966,6 +967,83 @@ class SubscriptionScreen extends HookConsumerWidget {
                           child: Text('Apply'),
                         ),
                       ),
+                    ),*/
+                    Expanded(
+                      flex: 2,
+                      child: OutlinedButton(
+                        onPressed: () {
+
+                          couponUsed.value = 1;
+
+                          if (couponCodeTextController.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Please enter code'),
+                              ),
+                            );
+                            return;
+                          }
+                          final data = {
+                            'code': couponCodeTextController.text.trim()
+                          };
+                          DioClient().verifyCoupon(data).then((response) {
+                            if (response == null) return;
+                            final data = response['data'];
+                            print("data['discount_type'] ${data['discount_type']}");
+                            if (data['discount_type'] == 'absolute') {
+                              couponPrice.value = data['discount'] as int;
+
+                              print("couponPrice.valuevalue ${couponPrice.value}");
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content:
+                                  Text('Coupon applied successfully'),
+                                ),
+                              );
+                              // couponCodeTextController.clear();
+                            }else if (data['discount_type'] == 'percentage') {
+
+                              print("double.parse(plans.value[selectedIndex.value].price ${double.parse(plans.value[selectedIndex.value].price.toString())}");
+
+                              int value = (double.parse(plans.value[selectedIndex.value].price.toString()) * double.parse(data['discount'].toString()) / 100).toInt();
+
+
+                              print("couponPrice.valuevalue ${value}");
+
+                              couponPrice.value = value;
+
+                              print("couponPrice.value ${couponPrice.value}");
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content:
+                                  Text('Coupon applied successfully'),
+                                ),
+                              );
+                              // couponCodeTextController.clear();
+                            }
+                          }).onError((error, stackTrace) {
+                            if (error is DioError) {
+                              final errors = error.response?.data
+                              as Map<String, dynamic>;
+
+                              if (errors['message'] != null) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                  SnackBar(
+                                    content: Text(errors['message']),
+                                  ),
+                                );
+                              }
+                            }
+                          });
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 13),
+                          child: Text('Verify'),
+                        ),
+                      ),
                     ),
                   ]),
                 )
@@ -1004,6 +1082,39 @@ class SubscriptionScreen extends HookConsumerWidget {
                         .then((value) {
                       showAlertDialog(context, "Payment Successful",
                           "Congratulation Your Subscription is Activated");
+                      final data = {
+                        'code': couponCodeTextController.text.trim()
+                      };
+                      DioClient().applyCoupon(data).then((response) {
+                        if (response == null) return;
+                        final data = response['data'];
+                        if (data['discount_type'] == 'absolute') {
+                          couponPrice.value = data['discount'] as int;
+
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content:
+                              Text('Coupon applied successfully'),
+                            ),
+                          );
+                          couponCodeTextController.clear();
+                        }
+                      })
+                          .onError((error, stackTrace) {
+                        if (error is DioError) {
+                          final errors = error.response?.data
+                          as Map<String, dynamic>;
+
+                          if (errors['message'] != null) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(
+                              SnackBar(
+                                content: Text(errors['message']),
+                              ),
+                            );
+                          }
+                        }
+                      });
                       //Navigator.of(context).pop();
                     });
                   });

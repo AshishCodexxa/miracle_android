@@ -73,9 +73,10 @@ Future<void> scheduleNotifications() async {
             channelDescription: 'Miracle',
           ),
         ),
-        androidAllowWhileIdle: true,
+        // androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
+        androidScheduleMode: AndroidScheduleMode.exact,
       );
     }
   }

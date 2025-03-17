@@ -56,8 +56,13 @@ class CollectionSetting extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(backgroundColor: primaryColor,
-        leading: const Icon(Icons.arrow_back,
-          color: Colors.white,),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         title: const Text('Collections',
         style: TextStyle(
           color: Colors.white
@@ -65,6 +70,7 @@ class CollectionSetting extends HookWidget {
         centerTitle: true,
         actions: [
           IconButton(
+            color: Colors.white,
             icon: const Icon(Icons.add_circle_outline),
             tooltip: 'Add Collection',
             onPressed: addCollectionDialog,

@@ -309,9 +309,9 @@ class Learn extends HookWidget {
           'assets/images/placeholder.webp',
         ),
       ),
-      MenuCard(
+      const MenuCard(
         name: 'My Own Quotes',
-        designation: const OwnQuotes(),
+        designation: OwnQuotes(),
         icon: Icon(
           Icons.edit_note_rounded,
           size: 50,
@@ -327,9 +327,9 @@ class Learn extends HookWidget {
           color: Colors.red,
         ),
       ),
-      MenuCard(
+      const MenuCard(
         name: 'My Collection',
-        designation: const CollectionSetting(),
+        designation: CollectionSetting(),
         icon: Icon(
           Icons.library_books_outlined,
           size: 40,
@@ -376,7 +376,7 @@ class Learn extends HookWidget {
                   itemCount: affirmations.value.length,
                   builder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 7, right: 7),
+                      padding: const EdgeInsets.only(left: 7, right: 7),
                       child: Container(
                         height: 60,
                         decoration: BoxDecoration(
@@ -433,7 +433,7 @@ class Learn extends HookWidget {
                               affirmations.value[index].name,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: 'Playfair_Medium'),
@@ -492,7 +492,7 @@ class Learn extends HookWidget {
                   itemCount: motivations.value.length,
                   builder: (context, index) {
                     return Padding(
-                        padding: EdgeInsets.only(left: 7, right: 7),
+                        padding: const EdgeInsets.only(left: 7, right: 7),
                         child: Container(
                           height: 60,
                           decoration: BoxDecoration(
@@ -550,7 +550,7 @@ class Learn extends HookWidget {
                                 motivations.value[index].name,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w400,
                                     fontFamily: 'Playfair_Medium'),
@@ -610,7 +610,7 @@ class Learn extends HookWidget {
                   itemCount: videos.value.length,
                   builder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 7, right: 7),
+                      padding: const EdgeInsets.only(left: 7, right: 7),
                       child: Container(
                         height: 60,
                         decoration: BoxDecoration(
@@ -673,7 +673,7 @@ class Learn extends HookWidget {
                               videos.value[index].title,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: 'Playfair_Medium'),
@@ -755,7 +755,7 @@ class Learn extends HookWidget {
                   itemCount: audioList.value.length,
                   builder: (context, index) {
                     return Padding(
-                        padding: EdgeInsets.only(left: 7, right: 7),
+                        padding: const EdgeInsets.only(left: 7, right: 7),
                         child: Container(
                           height: 60,
                           decoration: BoxDecoration(
@@ -791,11 +791,11 @@ class Learn extends HookWidget {
                                   showSubscriptionSheet();
                                   return;
                                 }
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => MyApp(
-                                    audio: audioList.value[index],
-                                  ),
-                                ));
+                                // Navigator.of(context).push(MaterialPageRoute(
+                                //   builder: (context) => MyApp(
+                                //     audio: audioList.value[index],
+                                //   ),
+                                // ));
                               },
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
@@ -819,7 +819,7 @@ class Learn extends HookWidget {
                                 audioList.value[index].title,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w400,
                                     fontFamily: 'Playfair_Medium'),
@@ -859,17 +859,17 @@ class Learn extends HookWidget {
                         image: '${kBaseUrl}img/audio/${audio.image}',
                         onPressed: () {
                           profile['subscription_end'] != null || audio.isFree
-                              ? Navigator.push(
+                              ? /*Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder:
-                                          (context) => /*AudioPlayerScreen(
+                                          (context) => *//*AudioPlayerScreen(
                                 audio: audio,
-                              ),*/
+                              ),*//*
                                               MyApp(
                                                 audio: audio,
                                               )),
-                                )
+                                )*/Container()
                               : showSubscriptionSheet();
                         },
                       ),
@@ -904,7 +904,7 @@ class Learn extends HookWidget {
                   itemCount: exercises.value.length,
                   builder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(left: 7, right: 7),
+                      padding: const EdgeInsets.only(left: 7, right: 7),
                       child: Container(
                         height: 60,
                         decoration: BoxDecoration(
@@ -969,7 +969,7 @@ class Learn extends HookWidget {
                               exercises.value[index].title,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: 'Playfair_Medium'),
@@ -1047,7 +1047,7 @@ class Learn extends HookWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(padding: EdgeInsets.symmetric(horizontal: 25),
+              const Padding(padding: EdgeInsets.symmetric(horizontal: 25),
               child:Text(
                 'Please login for more customization',
                 style: TextStyle(
@@ -1063,7 +1063,7 @@ class Learn extends HookWidget {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => Login(),
+                      builder: (context) => const Login(),
                     ),
                   );
                 },

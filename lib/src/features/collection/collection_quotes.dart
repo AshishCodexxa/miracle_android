@@ -138,8 +138,13 @@ class CollectionQuotes extends HookWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: const Icon(Icons.arrow_back,
-        color: Colors.white,),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+          color: Colors.white,),
+        ),
         title: Text(collectionName.value,
         style: const TextStyle(
           color: Colors.white
@@ -147,6 +152,7 @@ class CollectionQuotes extends HookWidget {
         centerTitle: true,
         actions: [
           IconButton(
+            color: Colors.white,
             icon: const Icon(Icons.more_horiz),
             tooltip: 'Edit Collection',
             onPressed: collectionActionDialog,

@@ -15,6 +15,13 @@ class LifeExerciseScreen extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         backgroundColor: primaryColor,
         title: Text(exercise.title,
         style: const TextStyle(

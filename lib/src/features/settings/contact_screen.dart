@@ -13,8 +13,13 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: primaryColor,
-        leading: const Icon(Icons.arrow_back,
-          color: Colors.white,),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back,
+            color: Colors.white,),
+        ),
         title: const Text('Contact Us',
         style: TextStyle(
           color: Colors.white

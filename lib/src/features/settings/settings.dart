@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:miracle/color.dart';
 import 'package:miracle/src/data/network/dio_client.dart';
 import 'package:miracle/src/features/auth/login.dart';
@@ -44,6 +45,12 @@ class Settings extends HookWidget {
       }
     }
 
+    final GoogleSignIn _googleSignIn = GoogleSignIn(
+      scopes: ['email', 'profile', 'openid'],
+      clientId: '894057546171-9okhku93sl9vvqqc5rcq17jlohd3k2ae.apps.googleusercontent.com',
+    );
+    Future<void> _handleSignOut() => _googleSignIn.signOut();
+
     useEffect(() {
       refresh();
       return;
@@ -62,6 +69,7 @@ class Settings extends HookWidget {
           isLogin.value?
           TextButton(
             onPressed: () {
+              _handleSignOut();
               DioClient().logout().then((value) {
                 GetStorage().remove(kAccessToken);
                 Navigator.of(context).pushAndRemoveUntil(
