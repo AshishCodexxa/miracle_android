@@ -18,6 +18,7 @@ import 'package:miracle/src/features/learn/category_quote.dart';
 import 'package:miracle/src/features/learn/learn_section.dart';
 import 'package:miracle/src/features/learn/life_exercise.dart';
 import 'package:miracle/src/features/learn/mmmmm.dart';
+import 'package:miracle/src/features/learn/play_audio.dart';
 import 'package:miracle/src/features/learn/video_player.dart';
 import 'package:miracle/src/features/settings/collection.dart';
 import 'package:miracle/src/features/settings/subscription.dart';
@@ -791,11 +792,11 @@ class Learn extends HookWidget {
                                   showSubscriptionSheet();
                                   return;
                                 }
-                                // Navigator.of(context).push(MaterialPageRoute(
-                                //   builder: (context) => MyApp(
-                                //     audio: audioList.value[index],
-                                //   ),
-                                // ));
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => AudioPlayerScreen(
+                                    audio: audioList.value[index],
+                                  ),
+                                ));
                               },
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
@@ -859,17 +860,18 @@ class Learn extends HookWidget {
                         image: '${kBaseUrl}img/audio/${audio.image}',
                         onPressed: () {
                           profile['subscription_end'] != null || audio.isFree
-                              ? /*Navigator.push(
+                              ? Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder:
-                                          (context) => *//*AudioPlayerScreen(
+                                          (context) => AudioPlayerScreen(
                                 audio: audio,
-                              ),*//*
-                                              MyApp(
+                              ),
+                                             /* MyApp(
                                                 audio: audio,
-                                              )),
-                                )*/Container()
+                                              )),*/
+                                )
+                          )
                               : showSubscriptionSheet();
                         },
                       ),

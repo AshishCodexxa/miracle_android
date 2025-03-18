@@ -52,6 +52,8 @@ class Mine extends HookWidget {
       return;
     }, []);
 
+    print("selectedCategory $selectedCategory");
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(

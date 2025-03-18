@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 // import 'package:gallery_saver/gallery_saver.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -193,7 +194,7 @@ class QuoteWidget extends HookConsumerWidget {
                 onPressed: () {
                   saveScreenshot().then(
                     (imagePath) {
-                     /* GallerySaver.saveImage(imagePath.path, albumName: kTitle)
+                      GallerySaver.saveImage(imagePath.path, albumName: kTitle)
                           .then((value) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -202,7 +203,7 @@ class QuoteWidget extends HookConsumerWidget {
                           ),
                         );
                         imagePath.delete();
-                      });*/
+                      });
                     },
                   );
                 }),

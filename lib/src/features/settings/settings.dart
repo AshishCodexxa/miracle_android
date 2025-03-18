@@ -60,6 +60,7 @@ class Settings extends HookWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: primaryColor,
+        automaticallyImplyLeading: false,
         title: const Text('Settings',
         style: TextStyle(
           color: Colors.white
@@ -288,7 +289,7 @@ class Settings extends HookWidget {
           ListTile(
             onTap: () {
               Share.share(
-                'Hey there! Check out this app for inspiring, motivating quotes and sayings: https://play.google.com/store/apps/details?id=com.manifestmiracle.app',
+                'Hey there! Check out this app for inspiring, motivating quotes and sayings: https://play.google.com/store/apps/details?id=com.miraclemanifest.app',
               );
             },
             leading: const Icon(
@@ -309,7 +310,7 @@ class Settings extends HookWidget {
           ListTile(
             onTap: () {
               launchUrl(Uri.parse(
-                  "https://play.google.com/store/apps/details?id=com.manifestmiracle.app"));
+                  "https://play.google.com/store/apps/details?id=com.miraclemanifest.app"));
             },
             leading: const Icon(
               Icons.thumb_up_outlined,
