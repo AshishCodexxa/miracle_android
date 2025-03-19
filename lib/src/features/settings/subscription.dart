@@ -1085,36 +1085,42 @@ class SubscriptionScreen extends HookConsumerWidget {
                       final data = {
                         'code': couponCodeTextController.text.trim()
                       };
-                      DioClient().applyCoupon(data).then((response) {
-                        if (response == null) return;
-                        final data = response['data'];
-                        if (data['discount_type'] == 'absolute') {
-                          couponPrice.value = data['discount'] as int;
+                      print("couponPrice.value ${couponPrice.value}");
 
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content:
-                              Text('Coupon applied successfully'),
-                            ),
-                          );
-                          couponCodeTextController.clear();
-                        }
-                      })
-                          .onError((error, stackTrace) {
-                        if (error is DioError) {
-                          final errors = error.response?.data
-                          as Map<String, dynamic>;
+                      if(couponPrice.value != 0){
+                        DioClient().applyCoupon(data).then((response) {
+                          if (response == null) return;
+                          final data = response['data'];
+                          if (data['discount_type'] == 'absolute') {
+                            couponPrice.value = data['discount'] as int;
 
-                          if (errors['message'] != null) {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(
-                              SnackBar(
-                                content: Text(errors['message']),
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                Text('Coupon applied successfully'),
                               ),
                             );
+                            couponCodeTextController.clear();
                           }
-                        }
-                      });
+                        })
+                            .onError((error, stackTrace) {
+                          if (error is DioError) {
+                            final errors = error.response?.data
+                            as Map<String, dynamic>;
+
+                            if (errors['message'] != null) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(
+                                SnackBar(
+                                  content: Text(errors['message']),
+                                ),
+                              );
+                            }
+                          }
+                        });
+                      }
+
+
                       //Navigator.of(context).pop();
                     });
                   });
