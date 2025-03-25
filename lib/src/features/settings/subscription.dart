@@ -1060,13 +1060,14 @@ class SubscriptionScreen extends HookConsumerWidget {
                 onPressed: () {
                   Razorpay razorpay = Razorpay();
                   var options = {
-                    'key': 'rzp_test_TR10gkPm5yHKHF',
+                    'key': 'rzp_live_JW7ADnrxIWjMJj',
+                    // 'key': 'rzp_test_TR10gkPm5yHKHF',
                     'amount': (plans.value[selectedIndex.value].price -
                         couponPrice.value) *
                         100,
-                    'name': 'Miracle Manifest',
+                    'name': 'Manifest Miracle',
                     'description':
-                    'Miracle Manifest ${plans.value[selectedIndex.value].name} subscription',
+                    'Manifest Miracle ${plans.value[selectedIndex.value].name} subscription',
                     'retry': {'enabled': true, 'max_count': 1},
                     'send_sms_hash': true,
                     'prefill': {'contact': '', 'email': ''},

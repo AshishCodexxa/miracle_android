@@ -45,6 +45,10 @@ class Home extends HookWidget {
         DioClient().getProfile().then((response) {
           profile.value = response['data'];
           GetStorage().write(kProfileData, profile.value);
+          print("profile.value['day_remains'] ${profile.value['plan']}");
+          profile.value['day_remains'] == null?
+          showSubscriptionAlert(context)
+              : Container();
         });
       }
       on DioError catch (e) {
@@ -245,87 +249,118 @@ class Home extends HookWidget {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
+          alignment: Alignment.center,
           children: [
-            activatedTheme.isEmpty
-                ? Image.asset(
-                    'assets/images/background.jpeg',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  )
-                : Image.file(
-                    File(activatedTheme),
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-            if (isLoading.value)
-              const Center(
-                child: CircularProgressIndicator(),
-              ),
-            if (!isLoading.value)
-              PageView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: quotes.value.length,
-                scrollDirection: Axis.vertical,
-                onPageChanged: (index) {
-                  if (index % 3 == 0 && profile.value['subscription_end'] == null) {
-                    subscriptionDialog();
-                  }
-                  if (index == (quotes.value.length - 2))
-                  {
-                    profile.value.isEmpty?loadFreeData():loadData();
-                  }
-                },
-                itemBuilder: (context, index) {
-                  return QuoteWidget(
-                    quote: quotes.value[index],
-                  );
-                },
-              ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Stack(
               children: [
-                Visibility(
-                  visible: comeFrom == "0" ? true : false,
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: GestureDetector(
-                        onDoubleTap: () {},
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          color: Colors.transparent,
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
+                activatedTheme.isEmpty
+                    ? Image.asset(
+                        'assets/images/background.jpeg',
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.file(
+                        File(activatedTheme),
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                if (isLoading.value)
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                if (!isLoading.value)
+                  PageView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: quotes.value.length,
+                    scrollDirection: Axis.vertical,
+                    onPageChanged: (index) {
+                      if (index % 3 == 0 && profile.value['subscription_end'] == null) {
+                        subscriptionDialog();
+                      }
+                      if (index == (quotes.value.length - 2))
+                      {
+                        profile.value.isEmpty?loadFreeData():loadData();
+                      }
+                    },
+                    itemBuilder: (context, index) {
+                      return QuoteWidget(
+                        quote: quotes.value[index],
+                      );
+                    },
+                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Visibility(
+                      visible: comeFrom == "0" ? true : false,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: GestureDetector(
+                            onDoubleTap: () {},
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              color: Colors.transparent,
+                              child: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
+                   profile.value['day_remains'] ==0?
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                        onPressed: subscriptionDialog,
+                        icon: const FaIcon(
+                          FontAwesomeIcons.crown,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    )
+                    :Container(),
+                  ],
                 ),
-               profile.value['day_remains'] ==0?
-                Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    onPressed: subscriptionDialog,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.crown,
-                      color: Colors.amber,
-                    ),
-                  ),
-                )
-                :Container(),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void showSubscriptionAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Unlock Every Aspect of Your Manifestation"),
+          content: const Text("To ensure uninterrupted service and continued innovation, subscribe today."),
+          actions: [
+           /* TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("OK"),
+            ),*/
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
     );
   }
 }

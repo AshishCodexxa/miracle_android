@@ -88,7 +88,7 @@ class Login extends HookWidget {
           print("User Photo: ${user.photoUrl}");
 
           final response = await http.get(
-            Uri.parse('https://manifest.bizz-manager.com/auth/google-callback?token=$token'),
+            Uri.parse('https://admin.manifestmiracle.net/auth/google-callback?token=$token'),
             // body: {'token': token},
           );
 
