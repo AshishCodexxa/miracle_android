@@ -50,7 +50,7 @@ Future<void> main() async {
   // Purchases.logIn('$userId');
   // Purchases.logOut();
   // await setupPurchase();
-  Workmanager().initialize(callbackDispatcher);
+  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
   if (!(GetStorage().read<bool>(kIsWorkManagerActive) ?? false)) {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();

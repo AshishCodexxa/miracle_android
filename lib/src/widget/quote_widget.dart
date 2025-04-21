@@ -222,7 +222,7 @@ class QuoteWidget extends HookConsumerWidget {
                     imagePath.delete();
                   });
                 });
-                // share(quote.quote);
+                share(quote.quote);
               },
             ),
           ]),

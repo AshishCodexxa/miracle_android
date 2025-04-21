@@ -18,7 +18,7 @@ import path_provider_foundation
 import purchases_flutter
 import share_plus
 import smart_auth
-import sqflite
+import sqflite_darwin
 import syncfusion_pdfviewer_macos
 import url_launcher_macos
 import video_player_avfoundation
